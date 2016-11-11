@@ -1,0 +1,9 @@
+<p>all the recipes</p>
+
+<h2>here are some eggs</h2>
+<% @recipes.each do |recipe| %>
+  <p class='text-primary'><%= recipe.chef %></p>
+  <p><%= recipe.ingredients %></p>
+  <p><%= recipe.directions %></p>
+
+<% end %>
