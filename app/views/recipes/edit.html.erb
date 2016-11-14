@@ -1,0 +1,22 @@
+<h2>Here is your form to edit</h2>
+
+
+<%= form_tag "/recipes/#{@recipe.id}", method: :patch do %>
+<div>
+  <%= label_tag :title %>
+  <%= text_field_tag :title, @recipe.title %>
+</div>
+<div>
+  <%= label_tag :chef %>
+  <%= text_field_tag :chef, @recipe.chef %>
+</div>
+<div>
+  <%= label_tag :ingredients %>
+  <%= text_field_tag :ingredients, @recipe.ingredients %>
+</div>
+<div>
+  <%= label_tag :directions %>
+  <%= text_field_tag :directions, @recipe.ingredients %>
+</div>
+<%= submit_tag 'Make a new recipe' %>
+<% end %>

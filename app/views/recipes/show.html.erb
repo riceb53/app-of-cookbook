@@ -1,0 +1,10 @@
+<h2>Here is your selected recipe</h2>
+
+<h2><%= @recipe.title %></h2>
+<p><%= @recipe.chef %></p>
+<p><%= @recipe.ingredients %></p>
+<p><%= @recipe.directions %></p>
+
+<p><%= link_to "Edit", "/recipes/#{@recipe.id}/edit" %><p>
+
+<p><%= link_to "Delete", "/recipes/#{@recipe.id}", method: :delete %></p>
