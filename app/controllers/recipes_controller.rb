@@ -20,7 +20,7 @@ class RecipesController < ApplicationController
     recipe = Recipe.new(title: params["title"], ingredients: params["ingredients"], chef: params["chef"], ingredients: params["ingredients"])
     recipe.save
     # add a flash message
-    flash[:created] = "You made a new thing"
+    flash[:success] = "You made a new thing"
     redirect_to "/recipes/#{recipe.id}"
   end
 
@@ -32,6 +32,7 @@ class RecipesController < ApplicationController
   def update
     recipe = Recipe.find_by(id: params["id"])
     recipe.update(title: params["title"], chef: params["chef"], directions: params["directions"], ingredients: params["ingredients"])
+    flash[:info] = "You edited the item"
     redirect_to "/recipes/#{recipe.id}"
   end
 
@@ -40,6 +41,7 @@ class RecipesController < ApplicationController
     recipe = Recipe.find_by(id: params["id"])
     # kill it
     recipe.destroy
+    flash[:danger] = "You <strong>destroyed</strong> the item"
     redirect_to "/recipes"
   end
 end
