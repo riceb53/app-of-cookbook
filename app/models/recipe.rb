@@ -1,5 +1,5 @@
 class Recipe < ApplicationRecord
-  def cook_for_longer
-    @prep_time += 10
+  def mardi_gras_time
+    prep_time * 2
   end
 end
