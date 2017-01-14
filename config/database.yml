@@ -23,7 +23,7 @@ default: &default
 
 development:
   <<: *default
-  database: app-of-cookbook_development
+  database: app-of-cookbook_test
   host: localhost
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -80,6 +80,6 @@ test:
 #
 production:
   <<: *default
-  database: app-of-cookbook_production
+  database: app-of-cookbook_test
   username: app-of-cookbook
   password: <%= ENV['APP-OF-COOKBOOK_DATABASE_PASSWORD'] %>

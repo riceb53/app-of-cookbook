@@ -10,14 +10,17 @@
         <div class="col-md-4">
           <h2><a href="/recipes/<%= recipe.id %>"><%= recipe.title %></a></h2>
           <p><%= recipe.chef %></p>
+          <p><%= recipe.pretty_time %></p>
           <img src="<%= recipe.image %>" width="100">
           <ul>
-          <% recipe.ingredients.split(',').each do |ingredient|%>
+          <% recipe.split_ingredients.each do |ingredient|%>
             <li><%= ingredient %></li>
           <% end %>
           </ul>
-          <p><%= recipe.directions %></p>
-          <p><%= recipe.mardi_gras_time %> minutes</p>
+          <ol>
+          <% recipe.directions %>
+          </ol>
+          <p><%= recipe.hours_and_minutes %></p>
         </div>
       <% end %>
     </div>

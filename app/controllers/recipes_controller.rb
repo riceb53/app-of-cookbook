@@ -1,7 +1,14 @@
 class RecipesController < ApplicationController
 
   def index
-    @recipes = Recipe.all
+    attribute = params["sort_attribute"]
+    order = params["order_by"]
+    if attribute && order
+      @recipes = Recipe.order(attribute => order)
+    else
+      @recipes = Recipe.all
+    end
+    @recipes = current_user.recipes
     render 'index.html.erb'
   end
 
@@ -17,7 +24,11 @@ class RecipesController < ApplicationController
 
   def create
     # make a new recipe from the params
-    recipe = Recipe.new(title: params["title"], ingredients: params["ingredients"], chef: params["chef"], ingredients: params["ingredients"])
+    recipe = Recipe.new(title: params["title"], ingredients: params["ingredients"],
+      chef: params["chef"],
+      ingredients: params["ingredients"],
+      user_id: current_user.id
+      )
     recipe.save
     # add a flash message
     flash[:success] = "You made a new thing"
